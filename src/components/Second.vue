@@ -19,7 +19,7 @@
     </ul>
     <h2>测试: v-for 遍历对象</h2>
     <ul>
-      <li v-for="(value, key) in persons[0]">
+      <li v-for="(value, key)  in persons[0]" :key="key">
         {{ key }} : {{ value }}
       </li>
     </ul>

@@ -23,7 +23,7 @@
       <span>城市: </span>
       <select v-model="user.cityId">
         <option value="">未选择</option>
-        <option v-for="city in allCitys" :value="city.id">
+        <option v-for="city in allCitys" :value="city.id" :key="city.id">
           {{ city.name }}
         </option>
       </select><br>
@@ -37,20 +37,20 @@
   export default {
     name: 'second',
     data() {
-      return{
+      return {
         user: {
           username: '',
           pwd: '',
           sex: 'female',
           likes: [],
           cityId: '',
-          desc: '',
+          desc: ''
         },
         allCitys: [
-          { id: 1, name: 'BJ' },
-          { id: 2, name: 'SZ' },
-          { id: 4, name: 'SH'}
-        ],
+          {id: 1, name: 'BJ'},
+          {id: 2, name: 'SZ'},
+          {id: 4, name: 'SH'}
+        ]
       }
     },
     methods: {
