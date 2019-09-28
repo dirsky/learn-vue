@@ -4,6 +4,9 @@ import HelloWorld from '@/components/HelloWorld'
 import First from '@/components/First'
 import Second from '@/components/Second'
 import Form from '@/components/Form'
+import goods from '@/components/goods/goods'
+import ratings from '@/components/ratings/ratings'
+import seller from '@/components/seller/seller'
 
 Vue.use(Router)
 
@@ -28,6 +31,21 @@ export default new Router({
       path: '/form',
       name: 'Form',
       component: Form
+    },
+    {
+      path: '/goods',
+      name: 'goods',
+      component: goods
+    },
+    {
+      path: '/ratings',
+      name: 'ratings',
+      component: ratings
+    },
+    {
+      path: '/seller',
+      name: 'seller',
+      component: seller
     }
   ]
 })
