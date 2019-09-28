@@ -18,24 +18,35 @@
           <span class="text">{{seller.supports[0].description}}</span>
         </div>
       </div>
-      <div v-if="seller.supports" class="support-count">
+      <div v-if="seller.supports" class="support-count" @click="detailShow">
         <span class="count">{{seller.supports.length}}个</span>
         <i class="icon-keyboard_arrow_right"></i>
       </div>
     </div>
-    <div class="bulletin-wrapper">
+    <div class="bulletin-wrapper" @click="detailShow">
       <span class="bulletin-title"></span><span class="bulletin-text">{{seller.bulletin}}</span>
       <i class="icon-keyboard_arrow_right"></i>
     </div>
     <div class="backgroud">
       <img :src="seller.avatar" width="100%" height="100%">
     </div>
+    <div v-show="detailFlag" class="detail"></div>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
   export default {
     name: 'v-header',
+    data() {
+      return {
+        detailFlag: false
+      }
+    },
+    methods: {
+      detailShow() {
+        this.detailFlag = true
+      }
+    },
     props: {
       seller: {}
     },
@@ -158,4 +169,13 @@
       height 100%
       z-index -1
       filter blur(10px)
+    .detail
+      position fixed
+      top 0
+      left 0
+      z-index 100
+      width 100%
+      height 100%
+      overflow auto
+      background rgba(7, 17, 27, 0.8)
 </style>
