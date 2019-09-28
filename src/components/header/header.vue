@@ -6,7 +6,11 @@
 
 <script type="text/ecmascript-6">
     export default {
-        name: 'v-header'
+      name: 'v-header',
+      props: {
+        seller: {
+        }
+      }
     }
 </script>
 

@@ -24,3 +24,5 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 npm install stylus  --save-dev 
 npm install stylus-loader  --save-dev
 "stylus-loader": "^2.1.1"
+
+npm install --save vue-resource
