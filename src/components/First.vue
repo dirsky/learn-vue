@@ -27,6 +27,7 @@
 <script>
   export default {
     name: 'First',
+    // 必须写函数
     data() {
       return {
         msg: 'First  vue page',

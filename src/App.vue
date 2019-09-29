@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <!--3. 使用组件<v-header/>-->
     <v-header :seller="seller"></v-header>
     <div class="tab border-1px">
       <div class="tab-item">
@@ -17,6 +18,7 @@
 </template>
 
 <script>
+  // 1. 引入组件
   import header from './components/header/header.vue'
 
   const ERR_OK = 0
@@ -37,6 +39,7 @@
         }
       })
     },
+    // 2. 映射组件标签
     components: {
       'v-header': header
     }

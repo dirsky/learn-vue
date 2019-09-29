@@ -4,6 +4,7 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import resource from 'vue-resource'
+import store from './store'
 
 import './common/stylus/index.styl'
 
@@ -14,6 +15,9 @@ Vue.config.productionTip = false
 new Vue({
   el: '#app',
   router,
-  components: { App },
-  template: '<App/>'
+  // 所有的组件对象都多了一个属性$store
+  store,
+  // components: { App },
+  // template: '<App/>'
+  render: h => h(App)
 })
