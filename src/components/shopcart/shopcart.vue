@@ -9,15 +9,15 @@
           <div class="num" v-show="totalCount>0">{{totalCount}}</div>
         </div>
         <div class="price" :class="{'highlight':totalPrice>0}">
-          ￥{{totalPrice}}元
+          ￥{{totalPrice}}
         </div>
         <div class="desc">
           另需要配送费￥{{deliveryPrice}}元
         </div>
       </div>
       <div class="content-right">
-        <div class="pay">
-          ￥{{minPrice}}元起送
+        <div class="pay" :class="{'enough': payClass}">
+          {{payDesc}}
         </div>
       </div>
     </div>
@@ -42,7 +42,7 @@
           return [
             // {
             //   price: 13,
-            //   count: 3
+            //   count: 0
             // }
           ]
         }
@@ -62,6 +62,25 @@
           count += food.count
         })
         return count
+      },
+      payDesc() {
+        let desc = ''
+        if (this.totalPrice === 0) {
+          desc = `￥${this.minPrice}元起送`
+        } else if (this.totalPrice < this.minPrice) {
+          let diff = this.minPrice - this.totalPrice
+          desc = `还差￥${diff}元`
+        } else {
+          desc = '去结算'
+        }
+        return desc
+      },
+      payClass() {
+        if (this.totalPrice >= this.minPrice) {
+          return true
+        } else {
+          return false
+        }
       }
     }
   }
@@ -125,8 +144,8 @@
         .price
           display inline-block
           vertical-align top
-          margin-top 12px
           line-height 24px
+          margin-top 12px
           padding-right 12px
           box-sizing border-box
           border-right 1px solid rgba(255, 255, 255, 0.1)
@@ -150,4 +169,6 @@
           font-size 12px
           font-weight 700
           background #2b333b
+          &.enough
+            background #00b43c
 </style>
