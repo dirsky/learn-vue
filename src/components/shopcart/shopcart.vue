@@ -312,7 +312,7 @@
     left 0
     width 100%
     height 100%
-    z-index 30  //z-index要小于shopcart的index
+    z-index 40  //z-index要小于shopcart的index
     backdrop-filter blur(10px)
     &.fade-enter-active, &.fade-leave-active
       opacity 1

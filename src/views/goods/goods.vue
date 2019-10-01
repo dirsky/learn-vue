@@ -4,7 +4,7 @@
       <ul>
         <li v-for="(item, index) in goods" :key="index"
           class="menu-item" :class="{'current':currentIndex===index}"
-          @click="selectFood(index, $event)">
+          @click="selectedFood(index, $event)">
           <span class="text border-1px">
             <span v-show="item.type>0" class="icon" :class="classMap[item.type]"></span>
             {{item.name}}<!--{{classMap[item.type]}}-->
@@ -17,7 +17,8 @@
         <li v-for="(item, index) in goods" :key="index" class="food-list" ref="foodListHook">
           <h1 class="title">{{item.name}}</h1>
           <ul>
-            <li v-for="(food, index) in item.foods" :key="index" class="food-item border-1px">
+            <li v-for="(food, index) in item.foods" :key="index"
+                class="food-item border-1px" @click="selectedFood(food,$event)">
               <div class="icon">
                 <img width="57" height="57" :src="food.icon">
               </div>
@@ -31,7 +32,7 @@
                   <span class="now">￥{{food.price}}</span><span class="old" v-show="food.oldPrice">￥{{food.oldPrice}}</span>
                 </div>
                 <div class="cartcontrol-wrapper">
-                  <cartcontrol :food="food"></cartcontrol>
+                  <cartcontrol :food="food" ref="food"></cartcontrol>
                 </div>
               </div>
             </li>
@@ -41,6 +42,7 @@
     </div>
     <shopcart :delivery-price="seller.deliveryPrice"
       :min-price="seller.minPrice" :select-foods="selectFoods"></shopcart>
+    <food :food="selectedFoodData" ref="foodDetail"></food>
   </div>
 </template>
 
@@ -48,6 +50,7 @@
   import BScroll from 'better-scroll'
   import shopcart from '../../components/shopcart/shopcart'
   import cartcontrol from '../../components/cartcontrol/cartcontrol'
+  import food from '../../components/food/food'
 
   const ERR_OK = 0
   export default {
@@ -61,7 +64,8 @@
       return {
         goods: {},
         listHeight: [],
-        scrollY: 0
+        scrollY: 0,
+        selectedFoodData: {}
       }
     },
     created() {
@@ -134,11 +138,20 @@
         let foodList = this.$refs.foodListHook
         let el = foodList[index]
         this.foodScroll.scrollToElement(el, 300)
+      },
+      selectedFood(food, event) {
+        if (!event.constructor) {
+          return
+        }
+        this.selectedFoodData = food
+        // 调用子组件的方法
+        this.$refs.foodDetail.show()
       }
     },
     components: {
       shopcart,
-      cartcontrol
+      cartcontrol,
+      food
     }
   }
 </script>
