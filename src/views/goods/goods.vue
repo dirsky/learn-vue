@@ -91,13 +91,16 @@
       },
       selectFoods() {
         let foods = []
-        this.goods.forEach((good) => {
-          good.foods.forEach((food) => {
-            if (food.count) {
-              foods.push(food)
-            }
+        if (this.goods.length) {
+          // 第3次才取到goods
+          this.goods.forEach((good) => {
+            good.foods.forEach((food) => {
+              if (food.count) {
+                foods.push(food)
+              }
+            })
           })
-        })
+        }
         return foods
       }
     },
