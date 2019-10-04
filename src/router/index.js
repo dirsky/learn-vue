@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+
 import HelloWorld from '@/components/HelloWorld'
 import First from '@/components/First'
 import Second from '@/components/Second'
@@ -12,6 +13,8 @@ import counterv from '@/components/CounterWithVuex'
 import counterv2 from '@/components/CounterWithVuex2'
 
 Vue.use(Router)
+
+// 路由组件，配置所有的页面跳转，成熟项目将路由子页面放置到view中
 
 export default new Router({
   linkActiveClass: 'active',

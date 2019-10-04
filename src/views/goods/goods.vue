@@ -53,6 +53,7 @@
   import food from '../../components/food/food'
 
   const ERR_OK = 0
+
   export default {
     name: 'goods',
     props: {
@@ -69,8 +70,7 @@
       }
     },
     created() {
-      this.classMap = ['decrease', 'discount',
-        'guarantee', 'invoice', 'special']
+      this.classMap = ['decrease', 'discount', 'guarantee', 'invoice', 'special']
       this.$http.get('/api/goods').then((response) => {
         response = response.body
         if (response.errno === ERR_OK) {
@@ -82,6 +82,8 @@
         }
       })
     },
+    // computed是属性调用，而methods是函数调用
+    // computed带有缓存功能，而methods不是
     computed: {
       currentIndex() {
         for (let i = 0; i < this.listHeight.length - 1; i++) {

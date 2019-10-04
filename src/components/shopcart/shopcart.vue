@@ -111,11 +111,7 @@
         return desc
       },
       payClass() {
-        if (this.totalPrice >= this.minPrice) {
-          return true
-        } else {
-          return false
-        }
+        return this.totalPrice >= this.minPrice
       },
       listShow() {
         if (!this.totalCount) {

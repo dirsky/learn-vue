@@ -47,12 +47,12 @@
         this.detailFlag = true
       }
     },
+    // 通过<v-header :seller="seller"></v-header>中的前面:seller来获取母页面的数据
     props: {
       seller: {}
     },
     created() {
-      this.classMap = ['decrease', 'discount',
-        'guarantee', 'invoice', 'special']
+      this.classMap = ['decrease', 'discount', 'guarantee', 'invoice', 'special']
     }
   }
 </script>
