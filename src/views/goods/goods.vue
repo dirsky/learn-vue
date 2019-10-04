@@ -40,6 +40,7 @@
         </li>
       </ul>
     </div>
+    <!--会转化为小驼峰格式的命名方法在props中接收-->
     <shopcart :delivery-price="seller.deliveryPrice"
       :min-price="seller.minPrice" :select-foods="selectFoods"></shopcart>
     <food :food="selectedFoodData" ref="foodDetail"></food>

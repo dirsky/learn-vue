@@ -62,6 +62,7 @@
         fold: true
       }
     },
+    // 注意接收后的变量可以进行默认格式转换及设置默认值
     props: {
       deliveryPrice: {
         type: Number,
