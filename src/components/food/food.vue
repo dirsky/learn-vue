@@ -28,7 +28,6 @@
     },
     methods: {
       show() {
-        console.log('show')
         this.showFlag = true
       },
       hide() {
