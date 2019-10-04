@@ -4,7 +4,7 @@
       <ul>
         <li v-for="(item, index) in goods" :key="index"
           class="menu-item" :class="{'current':currentIndex===index}"
-          @click="selectedFood(index, $event)">
+          @click="selectFood(index, $event)">
           <span class="text border-1px">
             <span v-show="item.type>0" class="icon" :class="classMap[item.type]"></span>
             {{item.name}}<!--{{classMap[item.type]}}-->
