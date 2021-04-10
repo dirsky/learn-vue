@@ -18,7 +18,6 @@ import './common/stylus/index.styl'
 Vue.use(resource)
 Vue.config.productionTip = false
 
-
 // 可以看出此处对vue是一个单页面应用
 /* eslint-disable no-new */
 new Vue({
